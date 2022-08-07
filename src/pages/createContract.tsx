@@ -60,20 +60,21 @@ const LoginPage: NextPage = () => {
 
   return (
     <AppContainer>
-      <Flex w="full" direction="column">
+      <Flex width={'100%'} maxWidth={'768px'} direction="column">
         <Box color="text.black" textAlign="left">
           <Box fontSize="5xl" fontWeight="bold" lineHeight="shorter">
             Create Contract
           </Box>
         </Box>
         <Box
-          fontSize="2xl"
-          color="text.black"
-          textAlign="center"
+          // fontSize="2xl"
+          fontSize={'1.25em'}
+          color={'text.gray'}
+          textAlign='start'
           h="140px"
-          alignItems="center"
           display="flex"
-          justifyContent="center"
+          alignItems='center'
+          justifyContent='flex-start'
         >
           Begin your contract in 4 easy steps...
         </Box>
@@ -160,7 +161,8 @@ const LoginPage: NextPage = () => {
           mt="66px"
           px={4}
           py={3}
-          h="auto"
+          // h="auto"
+          h={'56px'}
           backgroundColor="text.blue"
           fontWeight="bold"
           alignItems="center"
