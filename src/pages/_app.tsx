@@ -10,6 +10,7 @@ import {
   chain,
 } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
+import { AppContainer } from "src/components/appContainer";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.polygon],
