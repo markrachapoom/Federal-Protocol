@@ -22,6 +22,8 @@ import { CheckIcon } from "@chakra-ui/icons";
 import { AppContainer } from "src/components/appContainer";
 import { useAccount, useConnect, useDisconnect, useSignMessage } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
+import { NFTStorage, File } from "nft.storage"
+import fs from 'fs'
 
 const LoginPage: NextPage = () => {
   const { address, isConnected } = useAccount();
@@ -37,6 +39,24 @@ const LoginPage: NextPage = () => {
   const { disconnect } = useDisconnect();
 
   useEffect(() => {}, []);
+
+  async function storeAsset() {
+    // const client = new NFTStorage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDExNzY3RkFENGM1YzM3NDBiYTkwNzZiMjBFYzNhNzc4Njg0OTVkRjciLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1OTg1NjI2NzIyMCwibmFtZSI6ImhidSJ9.ACEzGTBusY378h9qf01FaVKArQo86sh-uoOlg1pi3ao" })
+    // const metadata = await client.store({
+    //     name: 'ExampleNFT',
+    //     description: 'My ExampleNFT is an awesome artwork!',
+    //     image: new File(
+    //         [await fs.promises.readFile('assets/MyExampleNFT.png')],
+    //         'MyExampleNFT.png',
+    //         { type: 'image/png' }
+    //     ),
+    // })
+    // console.log("Metadata stored on Filecoin and IPFS with URL:", metadata.url)
+ }
+
+ function handleUpload() {
+    console.log("hoge")
+ }
 
   return (
     <AppContainer>
@@ -99,7 +119,8 @@ const LoginPage: NextPage = () => {
                   h="30px"
                   fontSize="12px"
                   type="file"
-                  variant="unstyled"
+                  variant="filled"
+                  onChange={handleUpload}
                 />
               </Flex>
             </Box>
