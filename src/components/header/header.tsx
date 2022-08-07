@@ -38,17 +38,7 @@ export const Header: React.FC<Props> = ({}) => {
       <Box>
         <NextLink href="/" passHref={true}>
           <Link>
-            <Text
-              px={4}
-              py={3}
-              h="auto"
-              fontWeight="bold"
-              alignItems="center"
-              variant="box"
-              color="text.purple"
-            >
-              Escrow
-            </Text>
+            <Image h={5} src="/logo.svg" alt="logo" />
           </Link>
         </NextLink>
       </Box>
