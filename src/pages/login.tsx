@@ -19,25 +19,24 @@ const LoginPage: NextPage = () => {
     chainId: 137,
     connector: new InjectedConnector(),
     onSuccess(data) {
-      console.log(data)
+      console.log(data);
     },
   });
   const { disconnect } = useDisconnect();
 
-
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <AppContainer>
       <Flex w="full" direction="column" align="left">
-        <Box color="text.white" textAlign="left">
+        <Box color="text.black" textAlign="left">
           <Box fontSize="5xl" fontWeight="bold" lineHeight="shorter">
             Login
           </Box>
         </Box>
         <Box
-          color="text.white"
+          fontSize="2xl"
+          color="text.black"
           textAlign="center"
           h="140px"
           alignItems="center"
@@ -56,7 +55,9 @@ const LoginPage: NextPage = () => {
           >
             <Flex h="full" p="44px" alignItems="center">
               <Image h="40px" src="/metamask.svg" alt="logo" />
-              <Text pl="44px" color="text.black">MetaMask</Text>
+              <Text pl="44px" color="text.black">
+                MetaMask
+              </Text>
               <Spacer />
               {isConnected == true ? (
                 <Button
