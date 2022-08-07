@@ -1,7 +1,9 @@
 import { Box, Flex, FlexProps } from "@chakra-ui/react";
 import { Header } from "../header";
 
-export const AppContainer: React.FC = ({ children, ...flexProps }) => {
+type Props = {children: any };
+
+export const AppContainer: React.FC<Props> = ({ children, ...flexProps }) => {
   return (
     <>
       <Header />

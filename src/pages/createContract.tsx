@@ -19,6 +19,14 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 
 const LoginPage: NextPage = () => {
   const { isConnected } = useAccount();
+  const { connect } = useConnect({
+    chainId: 137,
+    connector: new InjectedConnector(),
+    onSuccess(data) {
+      console.log(data);
+    },
+  });
+  const { disconnect } = useDisconnect();
 
   useEffect(() => {}, []);
 
