@@ -44,6 +44,22 @@ export const Header: React.FC<Props> = ({}) => {
         </NextLink>
       </Box>
       <Flex gap={4} align="center">
+
+      <NextLink href="/judge" passHref={true}>
+        <Button
+          px={4}
+          py={3}
+          h="auto"
+          fontWeight="bold"
+          alignItems="center"
+          variant="box"
+          color="text.black"
+        >
+          Judge
+        </Button>
+      </NextLink>
+
+      {/* CREATE CONTRACT */}
         <NextLink href="/createContract" passHref={true}>
           <Button
             px={4}
@@ -57,6 +73,8 @@ export const Header: React.FC<Props> = ({}) => {
             Create Contract
           </Button>
         </NextLink>
+
+        {/* LOG IN */}
         <NextLink href="/login" passHref={true}>
           <Button
             px={4}
