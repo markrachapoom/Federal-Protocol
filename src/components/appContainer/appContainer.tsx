@@ -8,7 +8,7 @@ export const AppContainer: React.FC<Props> = ({ children, ...flexProps }) => {
     <>
       <Header />
       <Flex
-        w="full"
+        w="960px"
         minH="100vh"
         px={24}
         pt={32}

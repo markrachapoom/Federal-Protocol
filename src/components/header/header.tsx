@@ -38,7 +38,8 @@ export const Header: React.FC<Props> = ({}) => {
       <Box>
         <NextLink href="/" passHref={true}>
           <Link>
-            <Image h={5} src="/logo.svg" alt="logo" />
+            <Text fontWeight="bold" textColor="text.black" fontSize="20px" ml="12px"> Federal Protocol</Text>
+            {/* <Image h={5} src="/logo.svg" alt="logo" /> */}
           </Link>
         </NextLink>
       </Box>
@@ -61,11 +62,10 @@ export const Header: React.FC<Props> = ({}) => {
             px={4}
             py={3}
             h="auto"
-            backgroundColor="backround.white"
+            backgroundColor="white"
             fontWeight="bold"
             alignItems="center"
             variant="box"
-            color="backround.white"
             rounded="full"
           >
             <Avatar size="sm" mr={3} />

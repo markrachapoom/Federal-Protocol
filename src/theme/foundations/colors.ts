@@ -5,7 +5,7 @@ export const colors: Colors = {
   text: {
     black: "#1C1F3E",
     white: "#FFFFFF",
-    purple: "#623CE7",
+    blue: "#007AFF",
 
     gray: "hsl(227, 15%, 65%)",
     invGray: "hsl(227, 20%, 65%)",

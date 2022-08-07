@@ -28,7 +28,7 @@ const LoginPage: NextPage = () => {
 
   return (
     <AppContainer>
-      <Flex w="full" direction="column" align="left">
+      <Flex w="full" direction="column">
         <Box color="text.black" textAlign="left">
           <Box fontSize="5xl" fontWeight="bold" lineHeight="shorter">
             Login
@@ -62,7 +62,7 @@ const LoginPage: NextPage = () => {
               {isConnected == true ? (
                 <Button
                   rounded="full"
-                  backgroundColor="text.purple"
+                  backgroundColor="text.blue"
                   onClick={() => disconnect()}
                 >
                   Disconnect
@@ -70,7 +70,7 @@ const LoginPage: NextPage = () => {
               ) : (
                 <Button
                   rounded="full"
-                  backgroundColor="text.purple"
+                  backgroundColor="text.blue"
                   onClick={() => connect()}
                 >
                   Connect
