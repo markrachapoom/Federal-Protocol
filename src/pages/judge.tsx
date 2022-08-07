@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { AppContainer } from 'src/components/appContainer';
 
-const Judge: NextPage = (props: Props) => {
+const Judge: NextPage = () => {
 
     const companies = [
         {
