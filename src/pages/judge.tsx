@@ -50,6 +50,7 @@ const Judge: NextPage = () => {
         {companies.map((company) => {
           return (
             <CompanyStatus
+              key={company.name}
               name={company.name}
               status={company.status}
               imageURI={company.imageURI}
@@ -83,8 +84,8 @@ const CompanyStatus: FC<{
         <Box borderRadius={999}>
           <Image
             src={imageURI}
-            width="35px"
-            height="35px"
+            width={"35px"}
+            height={"35px"}
             borderRadius={999}
             // borderRadius={100}
           />
