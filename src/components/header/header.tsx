@@ -38,28 +38,21 @@ export const Header: React.FC<Props> = ({}) => {
       <Box>
         <NextLink href="/" passHref={true}>
           <Link>
-            <Text fontWeight="bold" textColor="text.black" fontSize="20px" ml="12px"> Federal Protocol</Text>
+            <Text
+              fontWeight="bold"
+              textColor="text.black"
+              fontSize="20px"
+              ml="12px"
+            >
+              {" "}
+              Federal Protocol
+            </Text>
             {/* <Image h={5} src="/logo.svg" alt="logo" /> */}
           </Link>
         </NextLink>
       </Box>
       <Flex gap={4} align="center">
-
-      <NextLink href="/judge" passHref={true}>
-        <Button
-          px={4}
-          py={3}
-          h="auto"
-          fontWeight="bold"
-          alignItems="center"
-          variant="box"
-          color="text.black"
-        >
-          Judge
-        </Button>
-      </NextLink>
-
-      {/* CREATE CONTRACT */}
+        {/* CREATE CONTRACT */}
         <NextLink href="/createContract" passHref={true}>
           <Button
             px={4}
@@ -71,6 +64,20 @@ export const Header: React.FC<Props> = ({}) => {
             color="text.black"
           >
             Create Contract
+          </Button>
+        </NextLink>
+
+        <NextLink href="/judge" passHref={true}>
+          <Button
+            px={4}
+            py={3}
+            h="auto"
+            fontWeight="bold"
+            alignItems="center"
+            variant="box"
+            color="text.black"
+          >
+            Judge
           </Button>
         </NextLink>
 
