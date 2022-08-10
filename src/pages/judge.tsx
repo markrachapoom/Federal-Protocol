@@ -2,8 +2,10 @@ import { NextPage } from "next";
 import React, { FC, useState } from "react";
 
 // CHakra UI
-import { Box, Button, Flex, Image, setScript, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Image, setScript, Text, VStack } from "@chakra-ui/react";
 import { AppContainer } from "src/components/appContainer";
+
+import { HiClock } from "react-icons/hi";
 
 const Judge: NextPage = () => {
   const companies = [
@@ -173,19 +175,43 @@ const CompanyStatus: FC<{
         <Text fontWeight={"bold"} fontSize={"1.15em"}>
           {name}
         </Text>
+
+        {/* CURRENT STATUS */}
+        { status === 'waiting for judge' &&
+          <HStack>
+            <HiClock
+              // backgroundColor={""}
+              color={"#FFCC00"}
+              width={"10px"}
+              height={"10px"}
+            />
+            <Text fontSize={"1em"} fontWeight={"semibold"}>
+              {status}
+            </Text>
+          </HStack>
+        }
       </Flex>
 
-      {/* CURRENT STATUS */}
-      <Box
-        border={"1px solid #00000030"}
-        borderRadius={999}
-        paddingX={"16px"}
-        paddingY={"8px"}
-      >
-        <Text fontSize={"1em"} fontWeight={"semibold"}>
-          {status}
-        </Text>
-      </Box>
+      { status === 'waiting for judge' ? (
+        <Button
+          backgroundColor={"text.blue"}
+          borderRadius={999}
+          textColor={"white"}
+        >
+          Approve
+        </Button>
+      ) : (
+        <Box
+          border={"1px solid #00000030"}
+          borderRadius={999}
+          paddingX={"14px"}
+          paddingY={"7px"}
+        >
+          <Text fontSize={"1em"} fontWeight={"semibold"}>
+            {status}
+          </Text>
+        </Box>
+      )}
     </Flex>
   );
 };
