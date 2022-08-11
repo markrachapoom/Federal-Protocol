@@ -1,3 +1,5 @@
 export const escrowFactoryContractAddress = "0x8725c0B61509c73F196E8B10014DC39C07801054"
+// pre created
+export const escrowContractAddress = "0x9E3f54AbD04a45eD6e6c5204e7F3589DcF40FeA0"
 
 export const NFTStorageToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDExNzY3RkFENGM1YzM3NDBiYTkwNzZiMjBFYzNhNzc4Njg0OTVkRjciLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1OTg1NjI2NzIyMCwibmFtZSI6ImhidSJ9.ACEzGTBusY378h9qf01FaVKArQo86sh-uoOlg1pi3ao"

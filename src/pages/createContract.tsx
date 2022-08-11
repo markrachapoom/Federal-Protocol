@@ -34,6 +34,7 @@ import { useContractWrite } from "wagmi";
 import {
   escrowFactoryContractAddress,
   NFTStorageToken,
+  escrowContractAddress
 } from "../repositories/constants";
 import abi from "../repositories/abi.json";
 
@@ -42,7 +43,7 @@ const LoginPage: NextPage = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const { address, isConnected } = useAccount();
   const [createdContractAddress, setCreatedContractAddress] = useState<string>(
-    "0x9E3f54AbD04a45eD6e6c5204e7F3589DcF40FeA0"
+    escrowContractAddress
   );
   const [signerAddress, setSignerAddress] = useState<string>("");
   const handleChangeSignerAddress = (
@@ -65,10 +66,6 @@ const LoginPage: NextPage = () => {
   useEffect(() => {}, []);
 
   const {
-    data,
-    error,
-    isError,
-    isLoading,
     write: createProxy,
   } = useContractWrite({
     addressOrName: escrowFactoryContractAddress,
@@ -143,7 +140,7 @@ const LoginPage: NextPage = () => {
             alignItems="center"
             justifyContent="center"
             textAlign="center"
-            height="220px"
+            height="380px"
             mb="80px"
           >
             <AlertIcon boxSize="40px" mr={0} />
@@ -156,6 +153,12 @@ const LoginPage: NextPage = () => {
               <br />
               <Link color="teal.500" href="https://rinkeby.etherscan.io/address/0x9e3f54abd04a45ed6e6c5204e7f3589dcf40fea0#code" isExternal>
                 {createdContractAddress} <ExternalLinkIcon mx='2px' />
+              </Link> 
+              <br /><br />
+              Your contract NFT.
+              <br />
+              <Link color="teal.500" href={contractNFTURI} isExternal>
+                {contractNFTURI} <ExternalLinkIcon mx='2px' />
               </Link> 
             </AlertDescription>
           </Alert>
