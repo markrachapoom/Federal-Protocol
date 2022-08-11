@@ -1,34 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Federal-Protocol
 
-## Getting Started
+### The problem The Federal Protocol solves
+In Web2 space, there's a popular Escrow service called Escrow.com. There are contract signing websites on Web2 like Docusign (and in Web3 there is Ethsign). However, we haven't yet found a decentralized protocol yet, where you can sign your contracts, which will automatically generate an escrow account with a judge of choice of both signing parties who will interpret the rules in the contract in case a dispute arises. Web2 services are costly and charge high fees.
 
-First, run the development server:
+Usually, escrow judge companies are centralised, but this protocol shall help hyperlocalise escrow dispute judgements between merchandise buyers and sellers.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This protocol aims to solve that.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Protocol: 
+<img width="1301" alt="スクリーンショット 2022-08-12 0 51 39" src="https://user-images.githubusercontent.com/4179632/184175880-6f3b92d5-f7d5-429a-9b33-e4ac6d4aa48f.png">
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+With the Federal Protocol, you can create a contract, and then get the other address to sign it, and in the contract itself, you can put the judge contract's address. When both parties sign the contract, it shall create an escrow wallet with all the parties involved. If both parties agree that product was delivered, the seller and other participants get the money. If one party isn't satisfied, they can choose to sue.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The judge address can either be controlled by a human or could be a contract. If it is a human, the judge will have full control over the escrow funds. To limit judge's powers (of calling judgeRule() function on the escrow wallet), it is advised contracts are made judges instead to act as a layer between escrow wallet and human judges. The judges can be a DAO, the panel of Humans, an AI, or literally anything. Judges can also be totally anonymous. Judges may also earn if they set a commission for themselves.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In this protocol, any judges can join and advertise themselves as the good judges in their own fields, and can build their own reputation so the contract signers choose them! Kinda like how Delaware Court of Chancory is best known for solving cases for Equity based Startups.
