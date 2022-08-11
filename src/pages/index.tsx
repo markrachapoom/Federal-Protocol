@@ -43,7 +43,7 @@ const Dashboard: NextPage = () => {
                 color="white"
                 lineHeight="shorter"
               >
-                Discover,collect,and sell <br /> extraordinary NFTs
+                Never buy or sell online<br /> without using<br /> Federal Protocol
               </Box>
               <Box
                 mt={4}
@@ -53,7 +53,8 @@ const Dashboard: NextPage = () => {
                 lineHeight="shorter"
                 whiteSpace="pre-wrap"
               >
-                OpenSea is the world’s first and largest NFT marketplace
+                Federal Protocol is a decentralized escrow platform with <br />
+                Blockchain technology. <br/>you can buy and sell anything safely trustlessly.
               </Box>
             </Flex>
           </Flex>
