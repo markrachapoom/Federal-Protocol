@@ -21,21 +21,29 @@ import {
   AlertIcon,
   AlertDescription,
   AlertTitle,
+  Spinner,
+  Link,
 } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/react";
-import { CheckIcon } from "@chakra-ui/icons";
+import { CheckIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { AppContainer } from "src/components/appContainer";
 import { useAccount, useConnect, useDisconnect, useSignMessage } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { NFTStorage, File } from "nft.storage";
 import { useContractWrite } from "wagmi";
-import { contractAddress, NFTStorageToken } from "../repositories/constants";
+import {
+  escrowFactoryContractAddress,
+  NFTStorageToken,
+} from "../repositories/constants";
 import abi from "../repositories/abi.json";
 
 const LoginPage: NextPage = () => {
   const toast = useToast();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const { address, isConnected } = useAccount();
+  const [createdContractAddress, setCreatedContractAddress] = useState<string>(
+    "0x9E3f54AbD04a45eD6e6c5204e7F3589DcF40FeA0"
+  );
   const [signerAddress, setSignerAddress] = useState<string>("");
   const handleChangeSignerAddress = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -56,11 +64,31 @@ const LoginPage: NextPage = () => {
 
   useEffect(() => {}, []);
 
-  const { data, error, isError, isLoading, write } = useContractWrite({
-    addressOrName: contractAddress,
+  const {
+    data,
+    error,
+    isError,
+    isLoading,
+    write: createProxy,
+  } = useContractWrite({
+    addressOrName: escrowFactoryContractAddress,
     contractInterface: abi,
-    functionName: "createContract",
-    args: [contractNFTURI!, signerAddress!, judgeAddress!],
+    functionName: "createProxy",
+    args: [address, signerAddress!, judgeAddress!],
+    onError(error) {
+      toast({
+        title: error.name,
+        description: error.message,
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    },
+    onSuccess(data) {
+      setIsVisible(true);
+      console.log("Success", data);
+    },
+    //args: ["0x886Aa330E54Fba39e342111455B1923CEd05B01D", "0x8E30B443da876487b146f783a5e5252dA90B642E", "0xD7ADf60E9057752858A27c67d1648db5FF472a45"],
   });
 
   async function storeAsset() {
@@ -85,18 +113,7 @@ const LoginPage: NextPage = () => {
   }
 
   function handleCreate() {
-    console.log(contractNFTURI);
-    console.log(signerAddress);
-    console.log(judgeAddress);
-    //write()
-    setIsVisible(true)
-    // toast({
-    //   title: "Error",
-    //   description: "Something went wrong.",
-    //   status: "error",
-    //   duration: 9000,
-    //   isClosable: true,
-    // });
+    createProxy();
   }
 
   return (
@@ -126,7 +143,7 @@ const LoginPage: NextPage = () => {
             alignItems="center"
             justifyContent="center"
             textAlign="center"
-            height="200px"
+            height="220px"
             mb="80px"
           >
             <AlertIcon boxSize="40px" mr={0} />
@@ -134,10 +151,12 @@ const LoginPage: NextPage = () => {
               Contract created!
             </AlertTitle>
             <AlertDescription maxWidth="sm">
-              Thanks for submitting your created. Your contract adrees is as
+              Thanks for submitting your contract. Your contract adrees is as
               blow. <br />
               <br />
-              hogehogehogehoge
+              <Link color="teal.500" href="https://rinkeby.etherscan.io/address/0x9e3f54abd04a45ed6e6c5204e7f3589dcf40fea0#code" isExternal>
+                {createdContractAddress} <ExternalLinkIcon mx='2px' />
+              </Link> 
             </AlertDescription>
           </Alert>
         ) : (
