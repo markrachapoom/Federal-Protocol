@@ -13,7 +13,6 @@ import {
 import { FaSearch } from "react-icons/fa";
 import NextLink from "next/link";
 import { useAccount, useContractRead } from "wagmi";
-import { contractAddress } from "../../repositories/constants";
 import abi from "../../repositories/abi.json";
 import React, { useCallback, useEffect, useState } from "react";
 
